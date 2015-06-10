@@ -5,6 +5,8 @@ import xml.etree.ElementTree as ET
 import urllib2
 import sys
 
+ME="Yazaten"
+
 solvedActiveMembers=7
 
 activeList=[
@@ -27,7 +29,7 @@ def getSolvedList(id,Dict):
 	root=tree.getroot()
 	#
 	for problemNum in root.findall(".//problem/id"):
-		Dict[problemNum.text]+=1;
+		Dict[problemNum.text] += 1;
 	#
 	return Dict
 
@@ -35,9 +37,12 @@ def getSolvedList(id,Dict):
 def getAlreadySolvedFromText():
 	dict = defaultdict(lambda : 0)
 	for line in open('solved.txt', 'r'):
-		dict[line[:-1]]=1;
+		dict[line[:-1]] += 1;
 	return dict
 
+
+solvedMeDict = defaultdict(lambda : 0)
+solvedMeDict = getSolvedList(ME,solvedMeDict)
 
 alreadySolved = getAlreadySolvedFromText()
 
@@ -64,8 +69,15 @@ for problem in problemList:
 	solvedNum	= problem[1]
 	#
 	if( solvedNum >= solvedActiveMembers ):
-		if alreadySolved[ str(problemNum) ] == 1 :
+		if alreadySolved[ str(problemNum) ] >= 1 :
+			if solvedMeDict[ problemNum ] >= 1 :
+				print "<tr class = \"warning\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+			else:
+				print "<tr class = \"info\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+		#
+		elif solvedMeDict[ problemNum ] >= 1 :
 			print "<tr class = \"success\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+		#
 		else:
 			print "<tr><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
 
