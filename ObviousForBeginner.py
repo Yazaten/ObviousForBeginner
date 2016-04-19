@@ -71,15 +71,15 @@ for problem in problemList:
 	if( solvedNum >= solvedActiveMembers ):
 		if alreadySolved[ str(problemNum) ] >= 1 :
 			if solvedMeDict[ problemNum ] >= 1 :
-				print "<tr class = \"warning\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+				print "<tr class = \"warning\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"\"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp\""+">"+problemNum+"</a>"  +"</td></tr>"
 			else:
-				print "<tr class = \"info\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+				print "<tr class = \"info\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"\"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp\""+">"+problemNum+"</a>"  +"</td></tr>"
 		#
 		elif solvedMeDict[ problemNum ] >= 1 :
-			print "<tr class = \"success\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+			print "<tr class = \"success\"><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"\"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp\""+">"+problemNum+"</a>"  +"</td></tr>"
 		#
 		else:
-			print "<tr><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp"+">"+problemNum+"</a>"  +"</td></tr>"
+			print "<tr><td>"+str(solvedNum)+"</td><td>"+  "<a href="+"\"http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id="+problemNum+"&lang=jp\""+">"+problemNum+"</a>"  +"</td></tr>"
 
 print "</tbody></table></div>"
 print "<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js\"></script><script src=\"js/bootstrap.min.js\"></script>"
