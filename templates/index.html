@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>problems</title>
+      <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+
+	<div class="container">
+	  <div>
+		<h1>solved チェッカー</h1>
+	  </div>
+
+	  <br><br>
+
+	  <table class="table table-hover table-striped table-condensed">
+	  <thead><tr><th>solved</th><th>problem</th></tr></thead><tbody>
+
+	  {% for problem in problems %}
+		<tr>
+		  <td>{{problem.count}}</td>
+		  <td>{{problem.count}}</td>
+		  <td><a href=http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id={{problem.number}}&lang=jp>{{problem.number}}</a></td>
+		</tr>
+	  {% endfor %}
+
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="js/bootstrap.min.js"></script>
+    </div>
+
+  </body>
+</html>
